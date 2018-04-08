@@ -2,6 +2,7 @@
 import logging
 import logging.config
 
+logging.raiseExceptions = False  # for prod
 # Programmatic root configuration.
 logging.basicConfig(filename='sample.log', level=logging.INFO, format='%(asctime)s %(name)s %(levelname)s %(message)s')
 # File base configuration.
