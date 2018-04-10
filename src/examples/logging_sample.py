@@ -6,7 +6,12 @@ import packagea.module_a
 
 logging.raiseExceptions = False  # for prod
 # Programmatic root configuration.
-logging.basicConfig(filename='sample.log', level=logging.INFO, format='%(asctime)s %(name)s %(levelname)s %(message)s')
+logging.basicConfig(
+    filename='sample.log',
+    level=logging.INFO,
+    format='%(asctime)s %(name)s %(levelname)s %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S %z'
+)
 # File base configuration.
 #logging.config.fileConfig('logging.conf')
 
