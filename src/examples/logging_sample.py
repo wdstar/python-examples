@@ -1,16 +1,19 @@
 # coding: utf-8
 import logging
 import logging.config
+import time
 import simple_module
 import packagea.module_a
 
 logging.raiseExceptions = False  # for prod
+#logging.Formatter.converter = time.localtime
+logging.Formatter.converter = time.gmtime
 # Programmatic root configuration.
 logging.basicConfig(
     filename='sample.log',
     level=logging.INFO,
     format='%(asctime)s %(name)s %(levelname)s %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S %z'
+    datefmt='%Y-%m-%d %H:%M:%S %Z %z'
 )
 # File base configuration.
 #logging.config.fileConfig('logging.conf')
