@@ -6,17 +6,17 @@ import simple_module
 import packagea.module_a
 
 logging.raiseExceptions = False  # for prod
-#logging.Formatter.converter = time.localtime
+# logging.Formatter.converter = time.localtime
 logging.Formatter.converter = time.gmtime
 # Programmatic root configuration.
 logging.basicConfig(
-    filename='sample.log',
+    filename="sample.log",
     level=logging.INFO,
-    format='%(asctime)s %(name)s %(levelname)s %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S %Z %z'
+    format="%(asctime)s %(name)s %(levelname)s %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S %Z %z",
 )
 # File base configuration.
-#logging.config.fileConfig('logging.conf')
+# logging.config.fileConfig('logging.conf')
 
 # Logger specific programmatic configuration.
 """
@@ -31,11 +31,11 @@ logger.propagate = False
 """
 
 logger = logging.getLogger(__name__)
-logger.debug('debug message')
-logger.info('info message')
-logger.warn('warn message')
-logger.error('error message')
-logger.critical('critical message')
+logger.debug("debug message")
+logger.info("info message")
+logger.warn("warn message")
+logger.error("error message")
+logger.critical("critical message")
 
 simple_module.module_logging()
 packagea.module_a.module_logging()
