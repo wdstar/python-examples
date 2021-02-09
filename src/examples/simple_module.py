@@ -26,3 +26,6 @@ class SimpleClass:
         self.logger.warn("warn message")
         self.logger.error("error message")
         self.logger.critical("critical message")
+
+    def sum(self, x, y):
+        return x + y
