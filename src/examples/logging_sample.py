@@ -1,4 +1,4 @@
-# coding: utf-8
+#!/usr/bin/env python3
 import logging
 import logging.config
 import time
@@ -10,7 +10,8 @@ logging.raiseExceptions = False  # for prod
 logging.Formatter.converter = time.gmtime
 # Programmatic root configuration.
 logging.basicConfig(
-    filename="sample.log",
+    # filename="sample.log",
+    handlers=[logging.StreamHandler(), logging.FileHandler("sample.log")],
     level=logging.INFO,
     format="%(asctime)s %(name)s %(levelname)s %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S %Z %z",
