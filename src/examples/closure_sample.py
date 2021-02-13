@@ -22,6 +22,12 @@ def get_func():
 
 get = get_func()
 
-print(get("name"))
-print(get("key-a"))
-print(get("key-b"))
+
+def main():
+    print(get("name"))
+    print(get("key-a"))
+    print(get("key-b"))
+
+
+if __name__ == "__main__":
+    main()

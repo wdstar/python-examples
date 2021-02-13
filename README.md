@@ -3,13 +3,14 @@
 
 ## Development
 
-1. Install tools.
+1. Install dependencies and tools.
     ```bash
-    $ pip install black pytest
+    $ pip install pipenv
+    $ pipenv install --dev
     ```
 1. Format and test.
     ```bash
-    $ black .
-    $ pytest tests
-    $ pytest tests/sample.py
+    $ pipenv run format
+    $ pipenv run test
+    $ pipenv run pytest tests/sample.py
     ```
