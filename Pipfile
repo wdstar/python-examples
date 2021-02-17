@@ -8,7 +8,7 @@ name = "pypi"
 allow_prereleases = true
 
 [scripts]
-test = "pytest ."
+test = "pytest tests tests/sample.py"
 format = "black ."
 
 [packages]
