@@ -1,23 +1,55 @@
 #!/usr/bin/env python3
 import argparse
+import coloredlogs
+import logging
+import time
+import sys
+
+logger = logging.getLogger(__name__)
+
+
+def log_sample(args):
+    logger.debug("debug message.")
+    logger.info("info message.")
+    logger.warning("warning message.")
+    logger.error("error message.")
 
 
 def node_list(args):
-    print("Execute node list command")
-    print(args)
+    logger.info("Execute node list command")
+    logger.info(args)
 
 
 def pod_list(args):
-    print("Execute pod list command")
-    print(args)
+    logger.info("Execute pod list command")
+    logger.info(args)
 
 
 def pod_delete(args):
-    print("Execute pod delete command")
-    print(args)
+    logger.info("Execute pod delete command")
+    logger.info(args)
 
 
 def main():
+    logging.raiseExceptions = False
+    logging.Formatter.converter = time.localtime
+    # logging.Formatter.converter = time.gmtime
+    """
+    logging.basicConfig(
+        # filename="sample.log",
+        handlers=[logging.StreamHandler()],
+        level=logging.DEBUG,
+        format="%(asctime)s %(name)s %(levelname)s %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S %Z %z",
+    )
+    """
+    coloredlogs.install(
+        stream=sys.stdout,  # default: sys.stderr
+        level="DEBUG",
+        fmt="%(asctime)s %(name)s %(levelname)s %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S %Z %z",
+    )
+
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers(dest="resource", help="target resource")
     # Note: In advance `dest` key word arg. of add_subparsers() must be set.
@@ -26,6 +58,13 @@ def main():
     # subparsers = parser.add_subparsers(
     #     dest="resource", required=True, help="target resource"
     # )
+
+    parser_log = subparsers.add_parser("log", help="manage logs")
+    subparser_log = parser_log.add_subparsers(dest="verb", help="operation")
+    subparser_log.required = True
+
+    parser_log_sample = subparser_log.add_parser("sample", help="sample logs.")
+    parser_log_sample.set_defaults(cmd_func=log_sample)
 
     parser_node = subparsers.add_parser("node", help="manage nodes")
     subparser_node = parser_node.add_subparsers(dest="verb", help="operation")

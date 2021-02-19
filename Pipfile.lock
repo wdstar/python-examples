@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "80ae43b1124132efdf17b77c7e718ea19a6eb6af1904b538250151710c2ebcbc"
+            "sha256": "d25d694de5c6ba701b48429dd7129d96e8bb522ea9d1642e4b4cb7164a1fab03"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -15,7 +15,24 @@
             }
         ]
     },
-    "default": {},
+    "default": {
+        "coloredlogs": {
+            "hashes": [
+                "sha256:5e78691e2673a8e294499e1832bb13efcfb44a86b92e18109fa18951093218ab",
+                "sha256:b7f630a8297a66984b6bae0f6a1b0e0afb9f2f6838ea3bfa58f50d3d13e133d6"
+            ],
+            "index": "pypi",
+            "version": "==15.0"
+        },
+        "humanfriendly": {
+            "hashes": [
+                "sha256:066562956639ab21ff2676d1fda0b5987e985c534fc76700a19bd54bcb81121d",
+                "sha256:d5c731705114b9ad673754f3317d9fa4c23212f36b29bdc4272a892eafc9bc72"
+            ],
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'",
+            "version": "==9.1"
+        }
+    },
     "develop": {
         "appdirs": {
             "hashes": [

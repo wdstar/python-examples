@@ -12,6 +12,7 @@ test = "pytest tests tests/sample.py"
 format = "black ."
 
 [packages]
+coloredlogs = "*"
 
 [dev-packages]
 black = "*"
