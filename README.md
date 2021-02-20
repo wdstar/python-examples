@@ -1,5 +1,6 @@
 # python-examples
 [![CircleCI](https://circleci.com/gh/wdstar/python-examples.svg?style=shield)](https://circleci.com/gh/wdstar/python-examples)
+[![Known Vulnerabilities](https://snyk.io//test/github/wdstar/python-examples/badge.svg)](https://snyk.io//test/github/wdstar/python-example)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=wdstar_python-examples&metric=alert_status)](https://sonarcloud.io/dashboard?id=wdstar_python-examples)
 
 ## Development
