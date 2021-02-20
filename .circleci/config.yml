@@ -16,7 +16,7 @@ jobs:
       - run:
           name: Snyk monitor
           command: |
-            sudo curl -o /usr/local/bin/snyk -L https://github.com/snyk/snyk/releases/download/v1.217.3/snyk-linux
+            sudo curl -o /usr/local/bin/snyk -L https://github.com/snyk/snyk/releases/download/v1.458.0/snyk-linux
             sudo chmod 755 /usr/local/bin/snyk
             snyk monitor
 
