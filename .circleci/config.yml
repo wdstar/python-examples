@@ -1,0 +1,27 @@
+version: 2
+jobs:
+  test:
+    docker:
+      - image: circleci/python:3.8
+    steps:
+      - checkout
+      - run:
+          name: Install tools
+          command: |
+            pipenv install --dev
+      - run:
+          name: Run unit tests
+          command: |
+            pipenv run test
+      - run:
+          name: Snyk monitor
+          command: |
+            sudo curl -o /usr/local/bin/snyk -L https://github.com/snyk/snyk/releases/download/v1.217.3/snyk-linux
+            sudo chmod 755 /usr/local/bin/snyk
+            snyk monitor
+
+workflows:
+  version: 2
+  build-workflow:
+    jobs:
+      - test
