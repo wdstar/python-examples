@@ -8,24 +8,24 @@ import sys
 logger = logging.getLogger(__name__)
 
 
-def log_sample(args):
+def log_sample(args: argparse.Namespace):
     logger.debug("debug message.")
     logger.info("info message.")
     logger.warning("warning message.")
     logger.error("error message.")
 
 
-def node_list(args):
+def node_list(args: argparse.Namespace):
     logger.info("Execute node list command")
     logger.info(args)
 
 
-def pod_list(args):
+def pod_list(args: argparse.Namespace):
     logger.info("Execute pod list command")
     logger.info(args)
 
 
-def pod_delete(args):
+def pod_delete(args: argparse.Namespace):
     logger.info("Execute pod delete command")
     logger.info(args)
 

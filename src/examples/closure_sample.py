@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 import configparser
 from pathlib import Path
+from typing import Callable
 
 
-def get_func():
+def get_func() -> Callable[[str], str]:
     # Config caching
     config = None
 
-    def get(key):
+    def get(key: str) -> str:
         nonlocal config
         # Lazy loading
         if config is None:
