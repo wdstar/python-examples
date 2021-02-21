@@ -2,6 +2,7 @@
 import coloredlogs
 import logging
 import sys
+import time
 
 
 logger = logging.getLogger(__name__)
@@ -23,7 +24,7 @@ def greet(who: str):
     logger.info(f"Hello {who}!")
 
 
-def retryable(max_attempts=3):
+def retryable(max_attempts: int = 3, back_off_period: int = 10):
     def _retryable(func):
         def wrapper(*args, **kwargs):
             for i in range(max_attempts + 1):
@@ -32,7 +33,10 @@ def retryable(max_attempts=3):
                 except Exception as e:
                     if i == max_attempts:
                         raise e
-                    logger.warning(f"Retry {i+1}: {func.__name__}...")
+                    logger.warning(
+                        f"Retry {i+1}/{max_attempts} (back off period: {back_off_period}s): {func.__name__}..."
+                    )
+                    time.sleep(back_off_period)
 
         return wrapper
 
@@ -45,7 +49,7 @@ def raise_no_exception(status: str) -> str:
     return status
 
 
-@retryable(max_attempts=4)
+@retryable(max_attempts=4, back_off_period=2)
 def always_raise_exception():
     logger.info("always_raise_exception() is called and raises an exception.")
     raise RuntimeError("Test exception.")
