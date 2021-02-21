@@ -30,10 +30,10 @@ def main():
     print(res.status_code)
     print(res.text)
 
-    session = get_session()
-    res = session.get(url, proxies=proxies)
-    res.raise_for_status()
-    print(res)
+    with get_session() as session:
+        res = session.get(url, proxies=proxies)
+        res.raise_for_status()
+        print(res)
 
 
 if __name__ == "__main__":
