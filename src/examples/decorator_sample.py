@@ -7,7 +7,7 @@ import sys
 logger = logging.getLogger(__name__)
 
 
-def repeat(count=3):
+def repeat(count: int = 3):
     def _repeat(func):
         def wrapper(*args, **kwargs):
             for _ in range(count):
@@ -19,8 +19,8 @@ def repeat(count=3):
 
 
 @repeat(count=5)
-def greet():
-    logger.info("Hello Decorator")
+def greet(who: str):
+    logger.info(f"Hello {who}!")
 
 
 def retryable(max_attempts=3):
@@ -40,8 +40,9 @@ def retryable(max_attempts=3):
 
 
 @retryable()
-def raise_no_exception():
-    logger.info("raise_no_exception() is called and raises no exception.")
+def raise_no_exception(status: str) -> str:
+    logger.info(f"raise_no_exception({status}) is called and raises no exception.")
+    return status
 
 
 @retryable(max_attempts=4)
@@ -58,8 +59,9 @@ def main():
         fmt="%(levelname)s %(message)s",
     )
 
-    greet()
-    raise_no_exception()
+    greet("alice")
+    status = raise_no_exception("ok")
+    logger.info(f"status: {status}")
     try:
         always_raise_exception()
     except Exception as e:
