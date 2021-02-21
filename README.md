@@ -24,4 +24,5 @@ $ pipenv run src/examples/cli.py log sample
 $ pipenv run src/examples/closure_sample.py
 $ pipenv run src/examples/decorator_sample.py
 $ pipenv run src/examples/logging_sample.py
+$ pipenv run src/examples/requests_sample.py
 ```
