@@ -32,6 +32,9 @@ def retryable(max_attempts: int = 3, back_off_period: int = 10):
                     return func(*args, **kwargs)
                 except Exception as e:
                     if i == max_attempts:
+                        logger.error(
+                            f"Retry of {func.__name__} has reached the max attempts ({max_attempts})."
+                        )
                         raise e
                     logger.warning(
                         f"Retry {i+1}/{max_attempts} (back off period: {back_off_period}s): {func.__name__}..."
